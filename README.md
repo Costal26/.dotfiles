@@ -28,5 +28,7 @@ git push -u origin main
 
 subir carpeta 
 git add nombre_de_la_carpeta/
+
 git commit -m "Añadir nueva carpeta al repositorio"
+
 git push origin main
