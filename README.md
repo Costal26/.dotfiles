@@ -33,3 +33,9 @@ git add nombre_de_la_carpeta/
 git commit -m "Añadir nueva carpeta al repositorio"
 
 git push origin main
+
+
+
+descargar repo 
+
+git clone --branch main 
