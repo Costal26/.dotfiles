@@ -184,7 +184,7 @@ bindsym $mod+r mode "resize"
 
 #window, feh (wallpaper), picom (transparency)
 for_window [class="^.*"] border pixel 3
-exec feh --bg-fill  /home/costal/Imágenes/3vnaxkmm0b441.jpg
+exec_always feh --bg-fill --randomize ~/Imágenes/Wallpapers* 
 #gaps
 gaps inner 10
 
@@ -197,12 +197,22 @@ bindsym Mod4+q exec firefox
 
 exec_always picom --experimental-backends
 #colors
-client.focused          #000000 #000000 #ffffff #ffffff   #000000
-client.unfocused          #000000 #000000 #ffffff #ffffff   #000000
+client.focused          #3b4252 #3b4252 #2e3440 #2e3440   #3b4252
+client.unfocused        #3b4252 #3b4252 #2e3440 #2e3440   #3b4252
 
 
 bindsym $mod+Mod4+Shift+Space shutdown now
-# Screenshots
-bindsym Print exec --no-startup-id maim "/home/costal/Imágenes$(date)"
-bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/costal/Imágenes$(date)"
-bindsym Shift+Print exec --no-startup-id maim --select "/home/costal/Imágenes$(date)"
+#polybar collection
+exec_always --no-startup-id $HOME/polybar-collection/launch.sh
+
+exec_always gnome-settings-daemon
+
+## Screenshots
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+
+## Clipboard Screenshots
+bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
